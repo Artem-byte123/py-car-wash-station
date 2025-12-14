@@ -34,5 +34,3 @@ class CarWashStation:
         denominater = self.count_of_ratings + 1
         self.average_rating = (new_average_rating/denominater, 1)
         self.count_of_ratings += 1
-
-
