@@ -21,7 +21,7 @@ class CarWashStation:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def several_cars(self, cars):
+    def serve_cars(self, cars):
         total_inner = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
@@ -33,5 +33,5 @@ class CarWashStation:
     def rate_service(self, new_raiting):
         new_average_rating = (self.average_rating * self.count_of_ratings) + new_raiting
         denominater = self.count_of_ratings + 1
-        self.average_rating = (new_average_rating / denominater, 1)
+        self.average_rating = round(new_average_rating / denominater, 1)
         self.count_of_ratings += 1

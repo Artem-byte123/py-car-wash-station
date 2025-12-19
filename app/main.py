@@ -3,11 +3,10 @@ from typing import List
 
 class Car:
     def __init__(self, comfort_class: int,
-                 clean_mark: int, brand: int) -> None:
+                 clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
-
 
 class CarWashStation:
     def __init__(self, distance_from_city_center: int, clean_power: int,
@@ -28,7 +27,8 @@ class CarWashStation:
         if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
 
-    def several_cars(self, cars: List[Car]) -> float:
+
+    def serve_cars(self, cars: List[Car]) -> float:
         total_inner = 0
         for car in cars:
             if car.clean_mark < self.clean_power:
@@ -37,9 +37,10 @@ class CarWashStation:
                 self.wash_single_car(car)
         return round(total_inner, 1)
 
-    def rate_service(self, new_raiting: float) -> None:
+
+    def rate_service(self, new_rating: float) -> None:
         new_average_rating = (self.average_rating
-                              * self.count_of_ratings) + new_raiting
+                              * self.count_of_ratings) + new_rating
         denominater = self.count_of_ratings + 1
-        self.average_rating = (new_average_rating / denominater, 1)
+        self.average_rating = round(new_average_rating / denominater, 1)
         self.count_of_ratings += 1
